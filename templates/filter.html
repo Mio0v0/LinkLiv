@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='filter-styles.css') }}">
+</head>
+
+<body>
+    <div class="filter-container">
+        <h2>Filter
+            <a href="{{ url_for('index') }}">
+                <span class="close">
+                    &times;
+                </span>
+            </a>
+        </h2>
+
+        <form action="{{ url_for('index') }}" method="GET">
+            <div class="filter-context">
+                <div class="filter-section">
+                    <span class="filter-heading">Rent</span>
+                    <label><input type="checkbox" name="rent" value="0-999">$999 and below</label>
+                    <label><input type="checkbox" name="rent" value="1000-1999">$1000 - $1999</label>
+                    <label><input type="checkbox" name="rent" value="2000-3499">$2000 - $3499</label>
+                    <label><input type="checkbox" name="rent" value="3500-5499">$3500 - $5499</label>
+                    <label><input type="checkbox" name="rent" value="5500-99999">$5500 and above</label>
+                </div>
+                {% for category, options in dropdown_3.items() %}
+                <div class="filter-section">
+                    <span class="filter-heading">{{ category.replace('_', ' ').title() }}</span>
+                    {% for option in options %}
+                    <label>
+                        <input type="checkbox" name="{{ category }}" value="{{option}}"> {{ option }}
+                    </label>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            <button>VIEW RESULTS</button>
+        </form>
+    </div>
+</body>
+
+</html>

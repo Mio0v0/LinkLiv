@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Contacts
+      <span class="profile">
+        <a href="{{ url_for('logout') }}">
+          <span class="close">
+            &times;
+          </span>
+        </a>
+      </span>
+    </h2>
+
+    <input type="text" class="input-field" placeholder="search by building/ room type /name ..."
+      style="width: 97.2%; padding: 10px; margin: 10px;">
+
+    <div class="context">
+      {% for user in all_users %}
+      <div class="contact-item" data-href="{{ url_for('profile_show', uni=user.uni) }}">
+        <div class="contact-left">
+          <h3>{{ user.name }}</h3>
+          <img src="{{ url_for('static', filename='profile.jpg') }}" class="contact-img"> <!-- Update as needed -->
+          <div class="description-box"><a href="{{ url_for('compare',  compare_with=user.uni) }}">Compare</a></div>
+        </div>
+        <div class="contact-right">
+          <div class="description-box">{{ user.building }}</div>
+          <div class="description-box">{{ user.room_type }}</div>
+          {% if user.cleanliness %}
+          <div class="description-box">{{ user.cleanliness }}</div>
+          {% endif %}
+          {% if user.smoking %}
+          <div class="description-box">{{ user.smoking }}</div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="button-container">
+      <a href="{{ url_for('filter') }}">
+        <button class="button" id="filter">Filters</button>
+      </a>
+      <a href="{{ url_for('add') }}">
+        <button class="button" id="add">Add</button>
+      </a>
+      <a href="{{ url_for('profile_show', uni=session['uni']) }}">
+        <button class="button" id="show">Profile</button>
+      </a>
+    </div>
+</body>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var contactItems = document.querySelectorAll('.contact-item');
+
+    contactItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        window.location.href = this.getAttribute('data-href');
+      });
+    });
+  });
+</script>
+
+</html>

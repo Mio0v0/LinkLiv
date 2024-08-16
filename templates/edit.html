@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='profile-styles.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <form action="{{ url_for('profile_edit') }}" method="post">
+      <h2>Profile
+        <a href="{{ url_for('profile_show') }}" class="edit-button-link">
+          <button type="submit" class="edit-button">SAVE</button>
+        </a>
+      </h2>
+      <div class="filter-context">
+        <div class="file-input">Upload Photo</div>
+
+        {% for option_key, option_values in dropdown_1.items() %}
+        <div class="dropdown-container">
+          <label for="{{ option_key }}">{{ option_key.replace('_', ' ').title() }}</label>
+          <select id="{{ option_key }}" name="{{ option_key }}">
+            <option value="">- Select -</option>
+            {% for value in option_values %}
+            <option value="{{ value }}" {% if user_profile[option_key]==value %}selected{% endif %}>{{ value }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        {% endfor %}
+
+        <div class="form-input">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Name" value="{{ user_profile.name or '' }}" required />
+        </div>
+        <div class="form-input">
+          <label for="phone-number">Phone number</label>
+          <input type="tel" id="phone_number" name="phone_number" placeholder="Phone number"
+            value="{{ user_profile.phone_number or '' }}" required />
+        </div>
+        <div class="form-input">
+          <label for="gender">Gender</label>
+          <input type="text" id="gender" name="gender" placeholder="Gender" value="{{ user_profile.gender or '' }}" />
+        </div>
+        <div class="form-input">
+          <label for="bio">Bio</label>
+          <input type="text" id="bio" name="bio" placeholder="Bio" value="{{ user_profile.bio or '' }}" />
+        </div>
+
+        <h3>Budget</h3>
+        <div class="slider-container">
+          <div class="values">
+            <span id="slider-range-value-1">Min $0</span>
+            <span id="slider-range-value-2">Max $10,000</span>
+          </div>
+          <div class="range-slider">
+            <input type="range" id="min-range" name="budget_min" min="0" max="10000"
+              value="{{ user_profile.budget_min or 100 }}" />
+            <input type="range" id="max-range" name="budget_max" min="0" max="10000"
+              value="{{ user_profile.budget_max or 10000 }}" />
+          </div>
+        </div>
+
+        <h3>Lifestyle</h3>
+        {% for option_key, option_values in dropdown_2.items() %}
+        <div class="dropdown-container">
+          <label for="{{ option_key }}">{{ option_key.replace('_', ' ').title() }}</label>
+          <select id="{{ option_key }}" name="{{ option_key }}">
+            <option value="">- Select -</option>
+            {% for value in option_values %}
+            <option value="{{ value }}" {% if user_profile[option_key]==value %}selected{% endif %}>{{ value }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        {% endfor %}
+
+      </div>
+    </form>
+  </div>
+</body>
+
+
+<script>
+  const minRange = document.getElementById("min-range");
+  const maxRange = document.getElementById("max-range");
+  const minValue = document.getElementById("slider-range-value-1");
+  const maxValue = document.getElementById("slider-range-value-2");
+
+  minRange.addEventListener("input", function () {
+    minValue.textContent = `Min $${minRange.value}`;
+  });
+
+  maxRange.addEventListener("input", function () {
+    maxValue.textContent = `Max $${maxRange.value}`;
+  });
+</script>
+
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roommate Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add-styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Share & Scan
+            <a href="{{ url_for('index') }}">
+                <span class="close">
+                    &times;
+                </span>
+            </a>
+        </h2>
+        <div class="profile-container">
+            <div class="profile">
+                <img src="{{ url_for('static', filename='qr_code_PNG25.png') }}" class="contact-img">
+            </div>
+        </div>
+        <button class="edit-button">SCAN</button>
+    </div>
+    </div>
+</body>
+
+
+
+</html>

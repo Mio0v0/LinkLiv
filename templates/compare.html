@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roommate Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='compare-styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Compare
+            <a href="{{ url_for('index') }}">
+                <span class="close">
+                    &times;
+                </span>
+            </a>
+        </h2>
+        <div class="profile-container">
+            <div class="profile">
+                <span class="profile-name">Me: {{ user_profile.name }}</span>
+                <img src="{{ url_for('static', filename='profile.jpg') }}" class="contact-img">
+            </div>
+            <div class="profile">
+                <span class="profile-name">{{ compare_user_profile.name }}</span>
+                <img src="{{ url_for('static', filename='profile.jpg') }}" class="contact-img">
+            </div>
+        </div>
+        <div class="highlight-container">
+            <div class="toggle">
+                <input type="checkbox" id="highlight-difference" name="toggle-difference">
+                <label for="highlight-difference">Highlight Difference</label>
+            </div>
+            <div class="toggle">
+                <input type="checkbox" id="highlight-compatibility" name="toggle-compatibility">
+                <label for="highlight-compatibility">Highlight Compatibility</label>
+            </div>
+        </div>
+        <div class="compare-context">
+            <div class="comparison-container">
+                {% for field in fields_2 %}
+                <div class="comparison-row header-row">
+                    <div class="comparison-header">{{ field.replace('_', ' ').title() }}</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comparison-data" data-user-value="{{ user_profile_2[field] }}">
+                        {{ user_profile_2[field] }}
+                    </div>
+                    <div class="comparison-data" data-compare-value="{{ compare_user_profile_2[field] }}">
+                        {{ compare_user_profile_2[field] }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+    </div>
+</body>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const highlightDifferenceCheckbox = document.getElementById('highlight-difference');
+        const highlightCompatibilityCheckbox = document.getElementById('highlight-compatibility');
+
+        function updateHighlighting() {
+            document.querySelectorAll('.comparison-row').forEach(row => {
+                // Only target rows with comparison data
+                if (row.querySelector('.comparison-data')) {
+                    const userValueElement = row.querySelector('.comparison-data[data-user-value]');
+                    const compareValueElement = row.querySelector('.comparison-data[data-compare-value]');
+
+                    if (userValueElement && compareValueElement) {
+                        const userValue = userValueElement.getAttribute('data-user-value');
+                        const compareValue = compareValueElement.getAttribute('data-compare-value');
+                        const isDifferent = userValue !== compareValue;
+                        const isNone = userValue === 'None' || compareValue === 'None';
+
+                        row.classList.remove('highlight-difference', 'highlight-compatibility');
+
+                        if (highlightDifferenceCheckbox.checked && isDifferent && !isNone) {
+                            row.classList.add('highlight-difference');
+                        }
+
+                        if (highlightCompatibilityCheckbox.checked && !isDifferent && !isNone) {
+                            row.classList.add('highlight-compatibility');
+                        }
+                    }
+                }
+            });
+        }
+
+        highlightDifferenceCheckbox.addEventListener('change', updateHighlighting);
+        highlightCompatibilityCheckbox.addEventListener('change', updateHighlighting);
+
+        updateHighlighting();
+    });
+</script>
+
+</html>

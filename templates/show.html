@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='profile-styles.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Profile
+      <a href="{{ url_for('index') }}">
+        <span class="close">
+          &times;
+        </span>
+      </a>
+    </h2>
+
+    <div class="filter-context">
+      <div class="file-input">
+        [Photo]
+      </div>
+      {% for field in field_1 %}
+      <div class="display">
+        <label for="{{ field }}">{{ field.replace('_', ' ').title() }}:</label>
+        <span id="{{ field }}" class="detail-display">{{ user_profile[field] }}</span>
+      </div>
+      {% endfor %}
+
+      <h3>Budget</h3>
+      <div class="slider-container">
+        <div class="values">
+          <span id="slider-range-value-1">{{ user_profile.budget_min }} ~ {{ user_profile.budget_max }}</span>
+        </div>
+      </div>
+
+      <h3>Lifestyle</h3>
+      {% for field in field_2 %}
+      <div class="dropdown-container">
+        <label for="{{ field }}-select">{{ field.replace('_', ' ').title() }}:</label>
+        <span id="{{ field }}-select">{{ user_profile[field] }}</span>
+      </div>
+      {% endfor %}
+
+    </div>
+
+    {% if is_own_profile %}
+    <a href="{{ url_for('profile_edit') }}" class="edit-button-link">
+      <button class="edit-button">EDIT</button>
+    </a>
+    {% endif %}
+
+  </div>
+</body>
+
+</html>
