@@ -1,0 +1,160 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Viewport Height - to use the full height of the screen */
+    background-color: rgb(240, 240, 240);
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 800px;
+    height: 90vh; /* Maximum height set to 80% of the viewport height */
+    position: relative;
+}
+
+.compare-context {
+    margin-top: 10px;
+    background: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 800px;
+    height: 50%; /* Maximum height set to 80% of the viewport height */
+    overflow-y: auto; /* Enables vertical scrolling if the content exceeds the max-height */
+    position: relative;
+}
+h2 {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.close {
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: 400;
+}
+.title {
+    flex: 2;
+    text-align: center;
+    margin: 0;
+}
+.placeholder {
+    flex: 1; 
+    visibility: hidden; 
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-around; 
+    text-align: center;
+    padding-bottom: 10px; 
+}
+
+.profile {
+    flex: 1; 
+    margin: 5px;
+    padding-bottom: 10px; 
+    border: 1px solid rgb(80, 80, 80); 
+    border-radius: 15px; 
+    background: white;
+    max-width: 300px;
+}
+
+.profile-name {
+    display: block;
+    margin-bottom: 10px;/
+}
+
+.profile img {
+    max-width: 70%; 
+    height: auto; 
+}
+
+.highlight-container {
+    display: flex;
+    justify-content: space-between; 
+    padding: 12px 4px; 
+}
+
+.toggle {
+    display: flex;
+    align-items: center; 
+}
+
+.toggle input[type="checkbox"] {
+    margin-right: 5px; 
+}
+
+.toggle label {
+    margin: 0; 
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.comparison-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.comparison-row {
+    display: flex;
+    /* border-bottom: 1px solid #ddd;  */
+    padding: 4px 0;
+    color: rgb(80, 80, 80);
+}
+
+.comparison-header{
+    flex: 1;
+    text-align: left;
+    padding: 6px 6px;
+    color: rgb(60, 60, 60);
+    font-weight: bold; 
+    background-color: rgb(220, 220, 220);
+
+}
+.comparison-data {
+    flex: 1; 
+    text-align: center; 
+    padding: 0 4px;
+}
+
+.highlight-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.highlight-difference {
+    background-color: #ffcccc;
+}
+
+.highlight-compatibility {
+    background-color: #ccffcc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    background-color: black; 
+    color: white; 
+    border: none; 
+    border-radius: 22px; 
+    text-align: center; 
+    text-decoration: none; /* No underline */
+    position:relative;
+    font-size: 16px; 
+}

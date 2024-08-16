@@ -1,0 +1,172 @@
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Viewport Height - to use the full height of the screen */
+  background-color: rgb(240, 240, 240);
+}
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 30px;
+  width: 80%;
+  max-width: 800px;
+  height: 90vh;
+  position: relative;
+}
+h2 {
+  border-bottom: 1px solid rgb(180, 180, 180);
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 400;
+  color: black;
+  text-decoration: none;
+}
+
+.filter-context {
+  margin-top: 20px;
+  margin-left: 2%;
+  background: rgb(255, 255, 255);
+  width: 95%;
+  max-width: 800px;
+  height: 75vh;
+  overflow-y: auto;
+  position: relative;
+}
+.display{
+  margin-bottom: 20px;
+}
+.detail-display {
+  display: inline-block;
+  margin-left: 10px;
+}
+.form-input {
+  margin-bottom: 10px;
+}
+.form-input input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 10px;
+  box-sizing: border-box; /* Ensures padding does not affect overall width */
+}
+.form-input label {
+  display: block; /* Ensures the label takes up the full width */
+}
+.file-input {
+  border: 1px solid rgb(220, 220, 220);
+  padding: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: rgb(100, 100, 100);
+  font-size: 18px; 
+  border-radius: 30px;
+  background-color: rgb(225, 225, 225);
+  cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+.file-input:hover {
+  background-color: rgb(240, 240, 240);
+}
+.slider-container {
+  width: 89%;
+  padding: 5.2%;
+  border: 1px solid rgb(220, 220, 220); 
+  border-radius: 15px;
+}
+.range-slider {
+  width: 100%;
+  margin: 30px 0;
+}
+.range-slider input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5px 0;
+}
+.range-slider input[type=range]:focus {
+  outline: none;
+}
+.range-slider input[type=range]::-webkit-slider-runnable-track {
+  background: #ddd;
+  border: none;
+  border-radius: 3px;
+  height: 6px;
+}
+.range-slider input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: rgb(120, 120, 120);
+  margin-top: -5px;
+  cursor: pointer;
+}
+.values {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+select {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid rgb(220, 220, 220); 
+  border-radius: 10px;
+  background-color: white;
+  font-size: 16px;
+  color: rgb(100, 100, 100);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  appearance: none; /* Removes default styling */
+  -moz-appearance: none; /* Removes default styling for Firefox */
+  -webkit-appearance: none; /* Removes default styling for WebKit browsers */
+  cursor: pointer; /* Changes the cursor to indicate it's clickable */
+}
+
+/* Style for the focus state of the select box */
+select:focus {
+  outline: none; /* Removes the default focus outline */
+  border-color: #64b5f6;
+  box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.5);
+}
+
+/* background image */
+select {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="grey" d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px top 50%; /* Positions the icon on the right, centered vertically */
+  background-size: 16px 16px; /* Icon size */
+}
+button {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  background-color: black; 
+  color: white; 
+  border: none; 
+  border-radius: 22px; 
+  text-align: center; 
+  text-decoration: none; /* No underline */
+  position:relative;
+  font-size: 16px; 
+}
+
+.edit-button-link {
+  text-decoration: none; /* No underline for the link */
+}

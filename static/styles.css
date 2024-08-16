@@ -1,0 +1,189 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+}
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 30px;
+    width: 80%;
+    max-width: 800px;
+    height: 90vh;
+    position: relative;
+}
+h2 {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.context {
+    width: 100%;
+    max-width: 800px;
+    height: 68vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* header */
+.profile {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+}
+.profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* search */
+.input-field {
+    width: 90%;
+    padding: 10px;
+    margin: 2px 0px;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 15px;
+    font-size: 16px;
+    color: rgb(80, 80, 80);
+    background-color: rgb(240, 240, 240);
+    outline: none;
+    box-sizing: border-box;
+}
+.input-field::placeholder {
+    color: rgb(180, 180, 180);
+}
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* contacts */
+.contact-item {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%; 
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+}
+.contact-left {
+    flex: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
+}
+.contact-right {
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 5px;
+}
+.contact-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.description-box {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-bottom: 5px;
+    font-size:15px;
+    border-radius: 5px;
+    color: rgb(60, 60, 60);
+    text-decoration: none;
+}
+
+.compare-checkbox {
+    margin-top: 5px;
+}
+
+.compare-label {
+    font-size: 12px;
+    cursor: pointer;
+    display: inline;
+}
+
+/* buttom */
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
+/* .button {     
+    padding: 10px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    font-size: 16px;
+    flex: 1;
+    margin: 15px 20px 2px; 
+    max-width: 100%;
+} */
+
+.button {     
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 15px;
+    border: 2px solid transparent;
+}
+
+#filter {
+    background-color: white;
+    color: black;
+    border-color: rgb(180, 180, 180);
+}
+
+#add {
+    background-color: grey;
+    color: white;
+    border-color: black;
+}
+
+#show {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.close {
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+
+    .context {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .description-box, .compare-label, h3, .input-field, .button {
+        font-size: 12px;
+    }
+
+}
