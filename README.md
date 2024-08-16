@@ -1,9 +1,10 @@
 # linkliv
-We followed the requirements, using Flask as the backend.  
-This project has already been deployed on Heroku to facilitate the grading process.  
-https://linkliv-1214-8c0efb304be3.herokuapp.com/  
-We also provide a video as required, in case the database does not work on your end.  
-https://drive.google.com/file/d/1jnnvSqOV4iyLcsEKykYNHNLrvY-SAzJp/view?usp=sharing  
+## Video Demo  
+
+
+
+https://github.com/user-attachments/assets/bc953338-e165-4795-af0b-77f7bbb1d03f
+
 
 ## Install Required Packages
 pip install -r requirements.txt
